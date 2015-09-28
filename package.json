@@ -1,0 +1,22 @@
+{
+  "name": "babel-features",
+  "version": "1.0.0",
+  "description": "Test babel features, can be used to generate babel options for specific compilation targets",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hax/babel-features.git"
+  },
+  "keywords": [
+    "babel"
+  ],
+  "author": "HE Shi-Jun <johnhax@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hax/babel-features/issues"
+  },
+  "homepage": "https://github.com/hax/babel-features#readme"
+}
