@@ -42,7 +42,7 @@ console.log(features)
 ```js
 var babelOptions = require('babel-features').options()
 require('babel/register')({
-	blacklist: babelOptions.blacklist
+	blacklist: babelOptions.blacklist,
 	optional: babelOptions.optional
 })
 ```
