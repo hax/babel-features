@@ -81,8 +81,6 @@ function options() {
 		if (!enumerable.call(testResult, f)) continue
 		if (testResult[f]) {
 			switch (f) {
-				case 'pass':
-					break
 				case 'es6.generators':
 					blacklist.push('regenerator')
 					if (!testResult['es7.asyncFunctions']) optional.push('asyncToGenerator')
