@@ -1,6 +1,6 @@
 {
   "name": "babel-features",
-  "version": "1.0.1",
+  "version": "2.0.0-dev",
   "description": "Test babel features, can be used to generate babel options for specific compilation targets",
   "main": "index.js",
   "scripts": {
@@ -14,7 +14,7 @@
     "babel"
   ],
   "peerDependencies": {
-    "babel": "5.x"
+    "babel-core": "6.x"
   },
   "author": "HE Shi-Jun <johnhax@gmail.com>",
   "license": "ISC",
