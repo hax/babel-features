@@ -1,3 +1,3 @@
 exports.test = function () {
-	return 3 ** 2 === 9
+	return /o+/y.sticky
 }
