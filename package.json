@@ -13,13 +13,13 @@
   "keywords": [
     "babel"
   ],
-  "peerDependencies": {
-    "babel": "5.x"
-  },
   "author": "HE Shi-Jun <johnhax@gmail.com>",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/hax/babel-features/issues"
+  },
+  "bin": {
+    "babel-feature-test": "cli.js"
   },
   "homepage": "https://github.com/hax/babel-features#readme"
 }
