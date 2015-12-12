@@ -1,6 +1,6 @@
 {
   "name": "babel-features",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Test babel features, can be used to generate babel options for specific compilation targets",
   "main": "index.js",
   "scripts": {
@@ -13,13 +13,16 @@
   "keywords": [
     "babel"
   ],
-  "peerDependencies": {
-    "babel": "5.x"
-  },
   "author": "HE Shi-Jun <johnhax@gmail.com>",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/hax/babel-features/issues"
   },
-  "homepage": "https://github.com/hax/babel-features#readme"
+  "bin": {
+    "babel-feature-test": "./bin/cli.js"
+  },
+  "homepage": "https://github.com/hax/babel-features#readme",
+  "dependencies": {
+    "cli-color": "^1.1.0"
+  }
 }
