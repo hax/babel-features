@@ -9,6 +9,12 @@ npm install babel-features
 
 ## Usage
 
+### CLI
+```sh
+npm install babel-features -g
+babel-features-test
+```
+###
 ### Node.js
 ```js
 var features = require('babel-features').test()
