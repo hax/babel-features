@@ -1,17 +1,20 @@
 'use strict'
 
 exports.test = function () {
-	function *g() {
-		var x = 0
-		try {
-			while (true) yield ++x
-		} finally {
-			return x
-		}
+	function* g() {
+		yield 1
+		yield 2
+		yield 3
 	}
 	var foo = g()
-	foo.next()
-	foo.next()
-	foo.return()
-	return foo.next().done && foo.next().value === 2
+	var ok = true
+		&& foo.next().value === 1
+		&& foo.next().value === 2
+		&& foo.next().value === 3
+		&& foo.next().done
+
+	var result = function* () { return 1 }().next()
+	ok = ok && result.done && result.value === 1
+	
+	return ok
 }

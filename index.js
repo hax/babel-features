@@ -31,6 +31,7 @@ var features = [
 	// Special features
 	'es2015-modules',
 	'es2015-generators',
+	'es2015-generator-return',
 	'es3-function-scope',
 ]
 
@@ -67,7 +68,9 @@ function options() {
 				break
 			case 'es2015-generators':
 				if (r) plugins.push(PREFIX + 'regenerator')
-				else plugins.push(PREFIX + 'async-to-generator')
+				break
+			case 'es2015-generator-return':
+				if (testResult['es2015-generators'] && r) plugins.push(PREFIX + f)
 				break
 			case 'es3-function-scope':
 				if (r) plugins.push('jscript')
