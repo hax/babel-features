@@ -3,7 +3,7 @@
 var features = [
 	// ES3
 	'es3-member-expression-literals',
-	'es3-property-Literals',
+	'es3-property-literals',
 
 	// ES5
 	'es5-property-mutators',
