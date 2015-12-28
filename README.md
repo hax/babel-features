@@ -2,7 +2,7 @@
 Test babel features, can be used to generate babel options for specific compilation targets
 
 
-NOTE: The latest version (2.x) is for babel 6.x, for babel 5.x please use version 1.x
+NOTE: The latest version (2.x) is for babel 6.x, for babel 5.x please use [version 1.x](https://github.com/hax/babel-features/tree/1.x)
 
 ## Install
 
