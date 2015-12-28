@@ -1,10 +1,13 @@
 {
   "name": "babel-features",
-  "version": "1.0.2",
+  "version": "2.0.0-beta",
   "description": "Test babel features, can be used to generate babel options for specific compilation targets",
   "main": "index.js",
   "scripts": {
-    "test": "node test"
+    "test": "node test",
+    "test-es2015": "BABEL_DISABLE_CACHE=1 babel-node --presets es2015 test",
+    "test-generator": "BABEL_DISABLE_CACHE=1 babel-node test -w transform-async-to-generator,transform-es2015-generator-return",
+    "test-function-name": "BABEL_DISABLE_CACHE=1 babel-node --plugins transform-es2015-function-name test"
   },
   "repository": {
     "type": "git",
@@ -14,12 +17,16 @@
     "babel"
   ],
   "peerDependencies": {
-    "babel-core": "5.x"
+    "babel-core": "6.x"
   },
   "author": "HE Shi-Jun <johnhax@gmail.com>",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/hax/babel-features/issues"
   },
-  "homepage": "https://github.com/hax/babel-features#readme"
+  "homepage": "https://github.com/hax/babel-features#readme",
+  "devDependencies": {
+    "babel-plugin-transform-es2015-generator-return": "^1.0.1",
+    "babel-preset-es2015": "^6.1.18"
+  }
 }

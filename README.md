@@ -1,12 +1,13 @@
 # babel-features
 Test babel features, can be used to generate babel options for specific compilation targets
 
-NOTE: Version 1.x is for babel 5.x, for babel 6.x please use [version 2.x](https://github.com/hax/babel-features/tree/2.x)
+
+NOTE: The latest version (2.x) is for babel 6.x, for babel 5.x please use [version 1.x](https://github.com/hax/babel-features/tree/1.x)
 
 ## Install
 
 ```sh
-npm install babel-features
+npm install babel-features@latest
 ```
 
 ## Usage
@@ -15,41 +16,43 @@ npm install babel-features
 ```js
 var features = require('babel-features').test()
 console.log(features)
-// output on Node.js 4.1.1:
-// { 'es3.memberExpressionLiterals': true,
-//   'es3.propertyLiterals': true,
-//   'es5.properties.mutators': true,
-//   'es6.arrowFunctions': true,
-//   'es6.blockScoping': true,
-//   'es6.classes': true,
-//   'es6.constants': true,
-//   'es6.destructuring': false,
-//   'es6.forOf': true,
-//   'es6.modules': false,
-//   'es6.parameters': false,
-//   'es6.properties.computed': true,
-//   'es6.properties.shorthand': true,
-//   'es6.spread': false,
-//   'es6.templateLiterals': true,
-//   'es6.regex.unicode': false,
-//   'es7.exponentiationOperator': false,
-//   'es7.asyncFunctions': false,
-//   'es7.objectRestSpread': false,
-//   'es7.functionBind': false,
-//   'es6.generators': false,
-//   'es3.functionScope': true }
+// output on Node.js 5.0.0:
+// { 'es3-member-expression-literals': true,
+//   'es3-property-literals': true,
+//   'es5-property-mutators': true,
+//   'es2015-arrow-functions': true,
+//   'es2015-block-scoping': true,
+//   'es2015-classes': true,
+//   'es2015-computed-properties': true,
+//   'es2015-constants': true,
+//   'es2015-destructuring': false,
+//   'es2015-for-of': true,
+//   'es2015-function-name': false,
+//   'es2015-literals': true,
+//   'es2015-object-super': true,
+//   'es2015-parameters': false,
+//   'es2015-shorthand-properties': true,
+//   'es2015-spread': false,
+//   'es2015-sticky-regex': false,
+//   'es2015-template-literals': true,
+//   'es2015-typeof-symbol': true,
+//   'es2015-unicode-regex': false,
+//   'es2015-modules': false,
+//   'es2015-generators': false,
+//   'es3-function-scope': true }
 ```
+
+### Use babel preset
+See https://github.com/ariporad/babel-preset-features
 
 ### Use babel register
 ```js
 var babelOptions = require('babel-features').options()
-require('babel/register')({
-	blacklist: babelOptions.blacklist,
-	optional: babelOptions.optional
-})
+require('babel-core/register')(babelOptions)
 ```
 
 
 ## TODO
 - Generate `.babelrc`
 - Generate `multiform.json` for https://github.com/callumlocke/multiform
+- Auto generate babel presets for some targets
