@@ -18,7 +18,7 @@ var features = require('babel-features').test()
 console.log(features)
 // output on Node.js 5.0.0:
 // { 'es3-member-expression-literals': true,
-//   'es3-property-Literals': true,
+//   'es3-property-literals': true,
 //   'es5-property-mutators': true,
 //   'es2015-arrow-functions': true,
 //   'es2015-block-scoping': true,
@@ -41,6 +41,9 @@ console.log(features)
 //   'es2015-generators': false,
 //   'es3-function-scope': true }
 ```
+
+### Use babel preset
+See https://github.com/ariporad/babel-preset-features
 
 ### Use babel register
 ```js
