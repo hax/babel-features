@@ -1,6 +1,8 @@
 # babel-features
 Test babel features, can be used to generate babel options for specific compilation targets
 
+NOTE: Version 1.x is for babel 5.x, for babel 6.x please use [version 2.x](https://github.com/hax/babel-features/tree/2.x)
+
 ## Install
 
 ```sh
