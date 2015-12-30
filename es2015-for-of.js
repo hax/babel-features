@@ -1,5 +1,3 @@
-'use strict'
-
 exports.test = function () {
 	var o = {}
 	o[Symbol.iterator] = function () {

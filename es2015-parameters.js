@@ -1,5 +1,3 @@
-'use strict'
-
 exports.test = function () {
 	function foo(x = true) {
 		return x

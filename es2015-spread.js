@@ -1,5 +1,3 @@
-'use strict'
-
 exports.test = function () {
 	function foo(a, b, c) {
 		return a + b === c

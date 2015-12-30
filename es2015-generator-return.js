@@ -1,5 +1,3 @@
-'use strict'
-
 exports.test = function () {
 	var closed
 	function *g() {

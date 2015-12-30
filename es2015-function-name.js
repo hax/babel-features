@@ -1,5 +1,3 @@
-'use strict'
-
 exports.test = function () {
 	var foo = function () {}
 	var obj = { foo: function () {} }

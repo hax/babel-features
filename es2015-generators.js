@@ -1,5 +1,3 @@
-'use strict'
-
 exports.test = function () {
 	function* g() {
 		yield 1
@@ -15,6 +13,6 @@ exports.test = function () {
 
 	var result = function* () { return 1 }().next()
 	ok = ok && result.done && result.value === 1
-	
+
 	return ok
 }

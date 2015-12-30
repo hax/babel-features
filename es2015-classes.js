@@ -1,5 +1,3 @@
-'use strict'
-
 exports.test = function () {
 	class A {
 		foo() { return true }

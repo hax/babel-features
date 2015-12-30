@@ -28,11 +28,16 @@ var features = [
 	'es2015-typeof-symbol',
 	'es2015-unicode-regex',
 
+	// Stage 3+
+	'exponentiation-operator',
+	'syntax-trailing-function-commas',
+
 	// Special features
+	'es3-function-scope',
 	'es2015-modules',
 	'es2015-generators',
 	'es2015-generator-return',
-	'es3-function-scope',
+	'async-functions',
 ]
 
 function test() {
