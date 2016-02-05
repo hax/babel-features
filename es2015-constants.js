@@ -1,4 +1,5 @@
-exports.test = function () {
-	const foo = true
-	return foo
-}
+const foo = true
+
+assert(
+	foo
+)

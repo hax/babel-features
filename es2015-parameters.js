@@ -1,6 +1,7 @@
-exports.test = function () {
-	function foo(x = true) {
-		return x
-	}
-	return foo()
+function foo(x = true) {
+	return x
 }
+
+assert(
+	foo()
+)

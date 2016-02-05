@@ -1,3 +1,3 @@
-exports.test = function () {
-	return typeof Symbol() === 'symbol'
-}
+assert(
+	typeof Symbol() === 'symbol'
+)

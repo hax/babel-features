@@ -1,3 +1,7 @@
-exports.test = function () {
-	return 0o7 === 0b111 && '\u{20bb7}' === '𠮷'
-}
+assert(
+	0b111 === 0o7
+)
+
+assert(
+	'\u{20bb7}' === '𠮷'
+)

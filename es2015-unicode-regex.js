@@ -1,4 +1,5 @@
-exports.test = function () {
-	var re = /^.$/u
-	return re.test("𠮷")
-}
+var re = /^.$/u
+
+assert(
+	re.test("𠮷")
+)

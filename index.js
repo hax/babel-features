@@ -1,5 +1,7 @@
 'use strict'
 
+var fs = require('fs')
+
 var features = [
 	// ES3
 	'es3-member-expression-literals',
@@ -10,7 +12,7 @@ var features = [
 
 	// ES2015
 	'es2015-arrow-functions',
-	// es2015-block-scoped-functions
+	'es2015-block-scoped-functions',
 	'es2015-block-scoping',
 	'es2015-classes',
 	'es2015-computed-properties',
@@ -44,11 +46,25 @@ function test() {
 	var result = {}
 	for (var i = 0; i < features.length; ++i) {
 		var f = features[i]
+		var code = fs.readFileSync(__dirname + '/' + f + '.js', 'utf-8')
+		var assert = function (test) {
+			if (result[f] === false) return
+			result[f] = !!test
+		}
 		try {
-			result[f] = require('./' + f).test()
+			new Function('assert', code)(assert)
 		} catch (e) {
-			// console.error(f, e)
-			result[f] = false
+			assert(false)
+		}
+		if (!result[f]) {
+			try {
+				f += ':strict'
+				new Function('assert', '"use strict";' + code)(assert)
+			} catch (e) {
+			}
+		}
+		if (result[f]) {
+
 		}
 	}
 	return result
@@ -61,9 +77,14 @@ var PREFIX = 'transform-'
 function options() {
 	var plugins = [], optional = []
 	var testResult = test()
+	var strict = false
 	for (var f in testResult) {
 		if (!enumerable.call(testResult, f)) continue
-		var r = !testResult[f]
+		if (testResult[f]) continue
+		if (testResult[f + ':strict']) {
+			strict = true
+			continue
+		}
 		switch (f) {
 		        case 'es2015-constants':
 				if (r) plugins.push('check-' + f)
@@ -72,21 +93,23 @@ function options() {
 				if (r) plugins.push(PREFIX + 'es2015-block-scoped-functions', PREFIX + f)
 				break
 			case 'es2015-modules':
-				if (r) plugins.push(PREFIX + f + '-' + moduleFormat())
+				plugins.push(PREFIX + f + '-' + moduleFormat())
 				break
 			case 'es2015-generators':
-				if (r) plugins.push(PREFIX + 'regenerator')
+				plugins.push(PREFIX + 'regenerator')
 				break
 			case 'es2015-generator-return':
-				if (testResult['es2015-generators'] && r) plugins.push(PREFIX + f)
+				if (testResult['es2015-generators']) plugins.push(PREFIX + f)
 				break
 			case 'es3-function-scope':
-				if (r) plugins.push('jscript')
+				plugins.push('jscript')
 				break
 			default:
-				if (r) plugins.push(PREFIX + f)
+				if (f.slice(0, 7) === 'syntax-') plugins.push(f)
+				else plugins.push(PREFIX + f)
 		}
 	}
+	if (strict) plugins.push(PREFIX + 'strict')
 	return {plugins: plugins}
 }
 

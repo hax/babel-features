@@ -1,5 +1,6 @@
-exports.test = function () {
-	var foo = true
-	var bar = {foo}
-	return bar.foo
-}
+var foo = true
+var bar = {foo}
+
+assert(
+	bar.foo
+)

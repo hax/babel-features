@@ -1,6 +1,6 @@
 // NOTE: Up to now, there is no runtime polyfill/shim available for sticky,
 //       So this test never pass even with babel plugin applied.
 
-exports.test = function () {
-	return /o+/y.sticky
-}
+assert(
+	/o+/y.sticky
+)

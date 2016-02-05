@@ -1,5 +1,11 @@
-exports.test = function () {
-	var foo = function () {}
-	var obj = { foo: function () {} }
-	return foo.name === 'foo' && obj.foo.name === 'foo'
-}
+var foo = function () {}
+
+assert(
+	foo.name === 'foo'
+)
+
+var obj = { bar: function () {} }
+
+assert(
+	obj.bar.name === 'bar'
+)

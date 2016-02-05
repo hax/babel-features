@@ -1,5 +1,6 @@
-exports.test = function () {
-	var foo = "foo"
-	var bar = `${foo}bar`
-	return bar === "foobar"
-}
+var foo = "foo"
+var bar = `${foo}bar`
+
+assert(
+	bar === "foobar"
+)

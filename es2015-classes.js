@@ -1,9 +1,10 @@
-exports.test = function () {
-	class A {
-		foo() { return true }
-	}
-	class B extends A {
-		bar() { return super.foo() }
-	}
-	return new B().bar()
+class A {
+	foo() { return false }
 }
+class B extends A {
+	bar() { return !super.foo() }
+}
+
+assert(
+	new B().bar()
+)
