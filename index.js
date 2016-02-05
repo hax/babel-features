@@ -86,10 +86,10 @@ function options() {
 			continue
 		}
 		switch (f) {
-		        case 'es2015-constants':
+			case 'es2015-constants':
 				if (r) plugins.push('check-' + f)
 				break
-		        case 'es2015-block-scoping':
+			case 'es2015-block-scoping':
 				if (r) plugins.push(PREFIX + 'es2015-block-scoped-functions', PREFIX + f)
 				break
 			case 'es2015-modules':
