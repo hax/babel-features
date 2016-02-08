@@ -27,6 +27,6 @@
   "homepage": "https://github.com/hax/babel-features#readme",
   "devDependencies": {
     "babel-plugin-transform-es2015-generator-return": "^1.0.1",
-    "babel-preset-es2015": "^6.1.18"
+    "babel-preset-es2015": "^6.5.0"
   }
 }
