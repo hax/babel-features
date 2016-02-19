@@ -17,9 +17,6 @@
   "keywords": [
     "babel"
   ],
-  "peerDependencies": {
-    "babel-core": "6.x"
-  },
   "author": "HE Shi-Jun <johnhax@gmail.com>",
   "license": "ISC",
   "bugs": {
