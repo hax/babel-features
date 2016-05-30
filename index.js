@@ -1,6 +1,5 @@
 'use strict'
 
-var fs = require('fs')
 
 var features = [
 	// ES3
@@ -31,9 +30,9 @@ var features = [
 	'es2015-typeof-symbol',
 	'es2015-unicode-regex',
 
-	// Stage 3+
-	'exponentiation-operator',
-	'syntax-trailing-function-commas',
+	// Stage 3
+	'exponentiation-operator',	// ES2016
+	'trailing-function-commas',	// Stage 3
 
 	// Special features
 	'es3-function-scope',
@@ -44,81 +43,99 @@ var features = [
 	'object-rest-spread',	// Stage 2
 ]
 
+
+var fs = require('fs')
+
 function test() {
 	var result = {}
 	for (var i = 0; i < features.length; ++i) {
 		var f = features[i]
 		var code = fs.readFileSync(__dirname + '/' + f + '.js', 'utf-8')
-		var assert = function (test) {
-			if (result[f] === false) return
-			result[f] = !!test
-		}
-		try {
-			new Function('assert', code)(assert)
-		} catch (e) {
-			assert(false)
-		}
-		if (!result[f]) {
-			try {
-				f += ':strict'
-				new Function('assert', '"use strict";' + code)(assert)
-			} catch (e) {
-			}
-		}
-		if (result[f]) {
-
-		}
+		result[f] = testFeature(code) || testFeature(code, true)
 	}
 	return result
+}
+
+function testFeature(code, strict) {
+	if (strict) code = '"use strict";' + code
+	try {
+		var r
+		new Function('assert', code)(function assert(test) {
+			if (r === false) return
+			r = !!test
+		})
+		if (r === undefined) throw new Error('no assert for ' + f)
+		if (r) return strict ? 'strict' : true
+	} catch (e) {}
+	return false
 }
 
 
 var enumerable = {}.propertyIsEnumerable
 var PREFIX = 'transform-'
 
-function options() {
-	var plugins = [], optional = []
+function options(opts) {
+	if (opts === undefined) opts = {}
+	var strict = opts.strict === undefined ? true : !!opts.strict
+	var modules = opts.modules === undefined ? true : !!opts.modules
+
+	var plugins = []
 	var testResult = test()
-	var strict = false
+	var regeneratorOptions = {generators: false, async: false, asyncGenerators: false}
 	for (var f in testResult) {
 		if (!enumerable.call(testResult, f)) continue
-		if (testResult[f]) continue
-		if (testResult[f + ':strict']) {
-			strict = true
-			continue
-		}
+		if (testResult[f] === true) continue
+		if (testResult[f] === 'strict' && strict) continue
 		switch (f) {
 			case 'es2015-constants':
-				if (r) plugins.push('check-' + f)
+				plugins.push('check-' + f)
 				break
-			case 'es2015-block-scoping':
-				if (r) plugins.push(PREFIX + 'es2015-block-scoped-functions', PREFIX + f)
+			case 'trailing-function-commas':
+				plugins.push('syntax-' + f)
 				break
-			case 'es2015-modules':
-				plugins.push(PREFIX + f + '-' + moduleFormat())
-				break
-			case 'es2015-generators':
-				plugins.push(PREFIX + 'regenerator')
-				break
-			case 'es2015-generator-return':
-				if (testResult['es2015-generators']) plugins.push(PREFIX + f)
+			case 'object-rest-spread':
+				plugins.push(PREFIX + f)
+				// Object Rest currently depends on the destructuring transform
+				if (testResult['es2015-destructuring']) plugins.push(PREFIX + 'es2015-destructuring')
 				break
 			case 'es3-function-scope':
 				plugins.push('jscript')
 				break
+			case 'es2015-generators':
+				regeneratorOptions.generators = true
+				break
+			case 'es2015-generator-return':
+				if (testResult['es2015-generators']) plugins.push(PREFIX + f)
+				break
+			case 'async-functions':
+				plugins.push('syntax-' + f)
+				regeneratorOptions.async = true
+				break
+			case 'async-generators':
+				plugins.push('syntax-' + f)
+				regeneratorOptions.asyncGenerators = true
+				break
 			default:
-				if (f.slice(0, 7) === 'syntax-') plugins.push(f)
-				else plugins.push(PREFIX + f)
+				plugins.push(PREFIX + f)
 		}
 	}
-	if (strict) plugins.push(PREFIX + 'strict')
+	plugins.push([PREFIX + 'regenerator', regeneratorOptions])
+
+	if (modules) {
+		var m = PREFIX + 'es2015-modules-' + moduleFormat()
+		if (strict) plugins.push(m)
+		else plugins.push([m, {strict: false}])
+	} else if (strict) {
+		plugins.push(PREFIX + 'strict-mode')
+	}
+
 	return {plugins: plugins}
 }
 
 function moduleFormat() {
 	if (typeof System === 'function' && typeof System.register === 'function') return 'systemjs'
-	if (typeof require === 'function' && typeof exports === 'object') return 'commonjs'
 	if (typeof define === 'function' && define.amd) return 'amd'
+	if (typeof require === 'function' && typeof exports === 'object') return 'commonjs'
 	return 'umd'
 }
 
