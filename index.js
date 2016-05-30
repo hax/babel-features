@@ -39,7 +39,7 @@ var features = [
 	'es3-function-scope',
 	'es2015-generators',
 	'es2015-generator-return',
-	'async-functions',
+	'async-functions',	// Stage 3
 	'object-rest-spread',	// Stage 2
 ]
 

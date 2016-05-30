@@ -1,11 +1,14 @@
-async function foo(x, y) {
-	return await x + await y
+async function foo(x) {
+	return await x
 }
 
-foo(1, 2).then(function (value) {
-
-	assert(
-		value === 3
-	)
-
+var called = false
+var p = foo({
+	then: function () {
+		called = true
+		throw 'test async functions'
+	}
 })
+
+assert(typeof p.then === 'function')
+assert(called)
