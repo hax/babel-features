@@ -18,6 +18,7 @@ var features = [
 	'es2015-computed-properties',
 	'es2015-constants',
 	'es2015-destructuring',
+	'es2015-duplicate-keys',
 	'es2015-for-of',
 	'es2015-function-name',
 	'es2015-literals',
