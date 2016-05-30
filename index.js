@@ -37,7 +37,6 @@ var features = [
 
 	// Special features
 	'es3-function-scope',
-	'es2015-modules',
 	'es2015-generators',
 	'es2015-generator-return',
 	'async-functions',
