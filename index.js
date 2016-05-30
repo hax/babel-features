@@ -40,6 +40,7 @@ var features = [
 	'es2015-generators',
 	'es2015-generator-return',
 	'async-functions',	// Stage 3
+	'async-generators',	// Stage 2
 	'object-rest-spread',	// Stage 2
 ]
 
