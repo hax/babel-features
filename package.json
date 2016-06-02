@@ -4,6 +4,7 @@
   "description": "Test babel features, can be used to generate babel options for specific compilation targets",
   "main": "index.js",
   "scripts": {
+    "prepublish": "node build",
     "test": "node test",
     "test-es2015": "BABEL_DISABLE_CACHE=1 babel-node --presets es2015 test",
     "test-features": "BABEL_DISABLE_CACHE=1 babel-node --presets features test",
