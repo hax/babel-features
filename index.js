@@ -50,7 +50,7 @@ function test() {
 	var result = {}
 	for (var i = 0; i < features.length; ++i) {
 		var f = features[i]
-		var code = fs.readFileSync(__dirname + '/' + f + '.js', 'utf-8')
+		var code = fs.readFileSync(__dirname + '/src/features/' + f + '.js', 'utf-8')
 		result[f] = testFeature(code) || testFeature(code, true)
 	}
 	return result
