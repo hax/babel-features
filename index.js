@@ -2,21 +2,14 @@
 
 
 
-var fs = require('fs')
-var yaml = require('js-yaml')
-
-var features = yaml.safeLoad(fs.readFileSync(__dirname + '/src/features.yaml', 'utf-8'))
-var tests = features.map(function (f) {
-	return fs.readFileSync(__dirname + '/src/features/' + f + '.js', 'utf-8')
-})
-
+var tests = require('./lib/tests')
 
 function test() {
 	var result = {}
-	for (var i = 0; i < features.length; ++i) {
-		var f = features[i]
-		var code = tests[i]
-		result[f] = testFeature(code) || testFeature(code, true)
+	for (var i = 0; i < tests.length; ++i) {
+		var name = tests[i].feature
+		var code = tests[i].code
+		result[name] = testFeature(code) || testFeature(code, true)
 	}
 	return result
 }
