@@ -1,0 +1,3 @@
+assert(
+	typeof Symbol() === 'symbol'
+)

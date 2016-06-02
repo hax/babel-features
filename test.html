@@ -1,0 +1,25 @@
+<!doctype html>
+<meta charset='utf-8'>
+<script src="dist/babel-features.js"></script>
+
+<body>
+
+<pre id="output"></pre>
+<script>
+log('User-Agent: ' + navigator.userAgent)
+
+log('babel features test result:')
+dir(BabelFeatures.test())
+
+log('recommended plugins:')
+dir(BabelFeatures.options().plugins)
+
+function log(it) {
+	var e = document.getElementById('output')
+	e.innerHTML += '<p>' + (it || '') + '</p>'
+}
+
+function dir(o) {
+	log(JSON.stringify(o, undefined, 2))
+}
+</script>
