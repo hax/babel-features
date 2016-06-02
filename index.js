@@ -40,6 +40,7 @@ var features = [
 	'es2015-generator-return',
 	'async-functions',	// Stage 3
 	'async-generators',	// Stage 2
+	'function-sent',	// Stage 2
 	'object-rest-spread',	// Stage 2
 ]
 
@@ -91,6 +92,7 @@ function options(opts) {
 				plugins.push('check-' + f)
 				break
 			case 'trailing-function-commas':
+			case 'function-sent':
 				plugins.push('syntax-' + f)
 				break
 			case 'object-rest-spread':
