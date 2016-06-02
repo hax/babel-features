@@ -1,57 +1,21 @@
 'use strict'
 
 
-var features = [
-	// ES3
-	'es3-member-expression-literals',
-	'es3-property-literals',
-
-	// ES5
-	'es5-property-mutators',
-
-	// ES2015
-	'es2015-arrow-functions',
-	'es2015-block-scoped-functions',
-	'es2015-block-scoping',
-	'es2015-classes',
-	'es2015-computed-properties',
-	'es2015-constants',
-	'es2015-destructuring',
-	'es2015-duplicate-keys',
-	'es2015-for-of',
-	'es2015-function-name',
-	'es2015-literals',
-	'es2015-object-super',
-	'es2015-parameters',
-	'es2015-shorthand-properties',
-	'es2015-spread',
-	'es2015-sticky-regex',
-	'es2015-template-literals',
-	'es2015-typeof-symbol',
-	'es2015-unicode-regex',
-
-	// Stage 3
-	'exponentiation-operator',	// ES2016
-	'trailing-function-commas',	// Stage 3
-
-	// Special features
-	'es3-function-scope',
-	'es2015-generators',
-	'es2015-generator-return',
-	'async-functions',	// Stage 3
-	'async-generators',	// Stage 2
-	'function-sent',	// Stage 2
-	'object-rest-spread',	// Stage 2
-]
-
 
 var fs = require('fs')
+var yaml = require('js-yaml')
+
+var features = yaml.safeLoad(fs.readFileSync(__dirname + '/src/features.yaml', 'utf-8'))
+var tests = features.map(function (f) {
+	return fs.readFileSync(__dirname + '/src/features/' + f + '.js', 'utf-8')
+})
+
 
 function test() {
 	var result = {}
 	for (var i = 0; i < features.length; ++i) {
 		var f = features[i]
-		var code = fs.readFileSync(__dirname + '/src/features/' + f + '.js', 'utf-8')
+		var code = tests[i]
 		result[f] = testFeature(code) || testFeature(code, true)
 	}
 	return result
