@@ -1,6 +1,6 @@
 'use strict'
 
-var f = require('./')
+var f = require('./lib')
 console.log('Node.js:', process.versions.node)
 console.log('V8:', process.versions.v8)
 console.log()
