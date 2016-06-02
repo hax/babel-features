@@ -95,8 +95,13 @@ function options(opts) {
 				break
 			case 'object-rest-spread':
 				plugins.push(PREFIX + f)
-				// Object Rest currently depends on the destructuring transform
-				if (testResult['es2015-destructuring']) plugins.push(PREFIX + 'es2015-destructuring')
+				// currently transform-object-rest-spread only enable syntax,
+				// need destructuring transform,
+				// also need parameters transform for destructuring function parameters
+				if (testResult['es2015-destructuring']) {
+					plugins.push(	PREFIX + 'es2015-destructuring',
+						PREFIX + 'es2015-parameters')
+				}
 				break
 			case 'es3-function-scope':
 				plugins.push('jscript')
