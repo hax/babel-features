@@ -1,6 +1,6 @@
 {
   "name": "babel-features",
-  "version": "2.0.0-beta",
+  "version": "2.0.0",
   "description": "Test babel features, can be used to generate babel options for specific compilation targets",
   "main": "index.js",
   "scripts": {
