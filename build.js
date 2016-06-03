@@ -1,6 +1,6 @@
 const {readFileSync, writeFileSync} = require('fs')
 
-const tests = require('./lib/tests')()
+const tests = require('./lib/load-tests')()
 
 const tpl = readFileSync(__dirname + '/dist-template.js', 'utf-8')
 const code = readFileSync(__dirname + '/lib/index.js', 'utf-8')
