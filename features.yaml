@@ -25,15 +25,18 @@
 - es2015-typeof-symbol
 - es2015-unicode-regex
 
-# Stage 3
-- exponentiation-operator   # ES2016
-- trailing-function-commas  # Stage 3
+# ES2016
+- exponentiation-operator
 
-# Special features
+# ES2017
+- trailing-function-commas
+
+# Special features (which not correspond to babel plugin directly)
 - es3-function-scope
+- es2015-iterator-close
 - es2015-generators
 - es2015-generator-return
-- async-functions     # Stage 3
-- async-generators    # Stage 2
-- function-sent       # Stage 2
-- object-rest-spread  # Stage 2
+- async-functions              # ES2017
+- async-generator-functions    # Stage 3
+- object-rest-spread           # Stage 3
+- function-sent                # Stage 2
