@@ -9,8 +9,9 @@
     "test": "node test",
     "test-es2015": "BABEL_DISABLE_CACHE=1 babel-node --presets es2015 test",
     "test-features": "BABEL_DISABLE_CACHE=1 babel-node --presets features test",
-    "test-generator": "BABEL_DISABLE_CACHE=1 babel-node test -w transform-async-to-generator,transform-es2015-generator-return",
-    "test-function-name": "BABEL_DISABLE_CACHE=1 babel-node --plugins transform-es2015-function-name test"
+    "test-generator": "BABEL_DISABLE_CACHE=1 babel-node test --plugins transform-async-to-generator,transform-es2015-generator-return",
+    "test-function-name": "BABEL_DISABLE_CACHE=1 babel-node test --plugins transform-es2015-function-name",
+    "babel": "babel"
   },
   "repository": {
     "type": "git",
