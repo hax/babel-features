@@ -14,6 +14,10 @@ dir(BabelFeatures.test())
 log('recommended plugins:')
 dir(BabelFeatures.options().plugins)
 
+log('recommended plugins (without stage 2 features):')
+dir(BabelFeatures.options({functionSent: false}).plugins)
+
+
 function log(it) {
 	var e = document.getElementById('output')
 	e.innerHTML += '<p>' + (it || '') + '</p>'

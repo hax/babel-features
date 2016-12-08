@@ -10,5 +10,10 @@ console.log(f.test())
 console.log()
 
 console.log('recommended plugins:')
-console.log(f.options().plugins)
+var plugins = f.options().plugins
+console.log(plugins)
+console.log()
+
+console.log('recommended plugins (without stage 2 features):')
+console.log(f.options({functionSent: false}).plugins)
 console.log()
