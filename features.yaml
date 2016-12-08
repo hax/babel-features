@@ -38,5 +38,6 @@
 - es2015-generator-return
 - async-functions              # ES2017
 - async-generator-functions    # Stage 3
+- for-await-of                 # Stage 3
 - object-rest-spread           # Stage 3
 - function-sent                # Stage 2

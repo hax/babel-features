@@ -4,12 +4,6 @@ async function* foo() {
 	return 3
 }
 
-async function bar() {
-	for await (const x of foo()) {
-		return x
-	}
-}
-
 var g = foo()
 var p = g.next()
 
