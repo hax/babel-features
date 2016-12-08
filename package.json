@@ -27,13 +27,16 @@
   },
   "homepage": "https://github.com/hax/babel-features#readme",
   "devDependencies": {
-    "babel-cli": "^6.9.0",
-    "babel-plugin-syntax-function-sent": "^6.8.0",
-    "babel-plugin-transform-es2015-generator-return": "^1.1.0",
-    "babel-polyfill": "^6.9.1",
-    "babel-preset-es2015": "^6.9.0",
-    "babel-preset-features": "^2.0.5",
-    "babel-preset-stage-0": "^6.5.0"
+    "babel-cli": "^6.16.0",
+    "babel-core": "^6.16.0",
+    "babel-plugin-transform-es2015-generator-return": "^1.2.2",
+    "babel-plugin-transform-flow-comments": "^6.16.0",
+    "babel-plugin-transform-function-sent": "^1.0.1",
+    "babel-polyfill": "^6.16.0",
+    "babel-preset-features": "^2.1.0",
+    "babel-preset-latest": "^6.16.0",
+    "babel-preset-stage-0": "^6.16.0",
+    "mkdirp": "^0.5.1"
   },
   "dependencies": {
     "js-yaml": "^3.6.1"
