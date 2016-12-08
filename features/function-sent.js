@@ -1,9 +1,15 @@
 function* g() {
-	assert(function.sent === 1)
+	assert(
+		function.sent === 1
+	)
 	yield
-	assert(function.sent === 2)
+	assert(
+		function.sent === 2
+	)
 	var x = yield
-	assert(function.sent === x)
+	assert(
+		function.sent === x
+	)
 }
 
 var test = g()
