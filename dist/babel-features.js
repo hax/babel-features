@@ -134,11 +134,11 @@ void function(global) {
 	},
 	{
 		"feature": "async-functions",
-		"code": "async function foo(x) {\n\treturn await x\n}\n\nvar called = false\nvar p = foo({\n\tthen: function () {\n\t\tcalled = true\n\t\tthrow 'test async functions'\n\t}\n})\n\nassert(typeof p.then === 'function')\nassert(called)\n"
+		"code": "async function foo(x) {\n\treturn await x\n}\n\nvar p = foo()\n\nassert(typeof p.then === 'function')\n"
 	},
 	{
 		"feature": "async-generators",
-		"code": "async function* foo(x) {\n\treturn await x\n}\n"
+		"code": "async function* foo(x) {\n\treturn await x\n}\nvar g = foo()\nvar p = g.next()\nassert(typeof p.then === 'function')\n"
 	},
 	{
 		"feature": "function-sent",
