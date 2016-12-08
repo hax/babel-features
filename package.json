@@ -5,6 +5,7 @@
   "main": "lib/index.js",
   "scripts": {
     "prepublish": "node build",
+    "gf": "node test/generate-fixture",
     "test": "node test",
     "test-es2015": "BABEL_DISABLE_CACHE=1 babel-node --presets es2015 test",
     "test-features": "BABEL_DISABLE_CACHE=1 babel-node --presets features test",
