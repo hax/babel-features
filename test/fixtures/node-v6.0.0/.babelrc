@@ -1,0 +1,19 @@
+{
+	"plugins": [
+		"check-es2015-constants",
+		"transform-es2015-function-name",
+		"transform-exponentiation-operator",
+		"syntax-trailing-function-commas",
+		"transform-es2015-for-of",
+		"transform-es2015-destructuring",
+		"transform-es2015-parameters",
+		"transform-async-to-generator",
+		"transform-async-generator-functions",
+		"transform-object-rest-spread",
+		"transform-es2015-modules-commonjs",
+		"transform-function-sent"
+	],
+	"parserOpts": {
+		"plugins": "*"
+	}
+}
