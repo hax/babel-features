@@ -25,7 +25,7 @@
   },
   "homepage": "https://github.com/hax/babel-features#readme",
   "devDependencies": {
-    "babel-cli": "^6.16.0",
+    "babel-cli": "^6.22.1",
     "babel-plugin-syntax-function-sent": "^6.8.0",
     "babel-plugin-transform-es2015-generator-return": "^1.2.0",
     "babel-polyfill": "^6.16.0",
