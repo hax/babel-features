@@ -1,4 +1,6 @@
 # babel-features
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/hax/babel-features.svg)](https://greenkeeper.io/)
 Test babel features, can be used to generate babel options for specific compilation targets
 
 
